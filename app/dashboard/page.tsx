@@ -1,72 +1,92 @@
 import { UserDetails } from "../components/user-details";
 import { UserButton } from "@clerk/nextjs";
 import { auth } from "@clerk/nextjs/server";
-import { CodeSwitcher } from "../components/code-switcher";
 import { LearnMore } from "../_template/components/learn-more";
 import { Footer } from "../_template/components/footer";
-import { ClerkLogo } from "../_template/components/clerk-logo";
-import { NextLogo } from "../_template/components/next-logo";
 import Link from "next/link";
-
-import { DASHBOARD_CARDS } from "../_template/content/cards";
-import { DeployButton } from "../_template/components/deploy-button";
 
 export default async function DashboardPage() {
   await auth.protect();
 
   return (
     <>
-      <main className="max-w-300 w-full mx-auto">
-        <div className="grid grid-cols-[1fr_20.5rem] gap-10 pb-10">
-          <div>
-            <header className="flex items-center justify-between w-full h-16 gap-4">
-              <div className="flex gap-4">
-                <div className="bg-[#F4F4F5] px-4 py-3 rounded-full inline-flex gap-4">
-                  <ClerkLogo />
-                  <div aria-hidden className="w-px h-6 bg-[#C7C7C8]" />
-                  <NextLogo />
-                </div>
-                <Link
-                  href="/"
-                  className="flex items-center gap-2 font-medium text-[0.8125rem] rounded-full px-3 py-2 hover:bg-gray-100"
-                >
-                  <svg
-                    className="w-4 h-4"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M15 19l-7-7 7-7"
-                    />
-                  </svg>
-                  Back to Home
-                </Link>
-              </div>
-              <div className="flex items-center gap-2">
-                <UserButton
-                  appearance={{
-                    elements: {
-                      userButtonAvatarBox: "size-8",
-                    },
-                  }}
-                />
-              </div>
-            </header>
-            <UserDetails />
-          </div>
-          <div className="flex flex-col">
-            <div className="flex items-center justify-center h-16 w-full">
-              <DeployButton className="h-8" />
-            </div>
-            <CodeSwitcher />
+    <div className="drawer drawer-open">
+      <input id="my-drawer-4" type="checkbox" className="drawer-toggle" />
+      <div className="drawer-content">
+        <UserDetails />
+      </div>
+
+      <div className="drawer-side is-drawer-close:overflow-visible">
+        <label htmlFor="my-drawer-4" aria-label="close sidebar" className="drawer-overlay"></label>
+        <div className="is-drawer-close:w-16 is-drawer-open:w-64 bg-base-200 flex flex-col items-center min-h-full">
+          {/* Sidebar content here */}
+          <ul className="menu w-full grow">
+
+            {/* list item */}
+            <li className="is-drawer-close:tooltip is-drawer-close:tooltip-right my-10" data-tip="User">
+              <button>
+              <UserButton
+              appearance={{
+                elements: {
+                  userButtonAvatarBox: "size-8",
+                },
+              }}
+            />
+            <span className="is-drawer-close:hidden">User</span>
+          </button>
+            </li>
+            <div className="divider"></div>
+            <li>
+                                                 
+              <button className="is-drawer-close:tooltip is-drawer-close:tooltip-right" data-tip="Homepage">
+              <Link
+          href="/"
+        >  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" strokeLinejoin="round" strokeLinecap="round" strokeWidth="2" fill="none" stroke="currentColor" className="inline-block size-4 my-1.5"><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"></path><path d="M3 10a2 2 0 0 1 .709-1.528l7-5.999a2 2 0 0 1 2.582 0l7 5.999A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg>
+                   </Link> <span className="is-drawer-close:hidden">Homepage</span>
+              </button>
+        
+            </li>
+            {/* list item */}
+            <li>
+              <button className="is-drawer-close:tooltip is-drawer-close:tooltip-right" data-tip="Settings">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" strokeLinejoin="round" strokeLinecap="round" strokeWidth="2" fill="none" stroke="currentColor" className="inline-block size-4 my-1.5"><path d="M20 7h-9"></path><path d="M14 17H5"></path><circle cx="17" cy="17" r="3"></circle><circle cx="7" cy="7" r="3"></circle></svg>
+                <span className="is-drawer-close:hidden">Settings</span>
+              </button>
+            </li>
+            <li>
+                            <button className="is-drawer-close:tooltip is-drawer-close:tooltip-right" data-tip="Back to home">
+                                   <Link
+          href="/"
+        >
+          <svg
+            className="w-4 h-4"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M15 19l-7-7 7-7"
+            />
+          </svg>
+        </Link>
+                <span className="is-drawer-close:hidden">Back to home</span>
+              </button>
+   
+      </li>
+          </ul>
+          <div className="divider"></div>
+          {/* button to open/close drawer */}
+          <div className="m-2 is-drawer-close:tooltip is-drawer-close:tooltip-right" data-tip="Open">
+            <label htmlFor="my-drawer-4" className="btn btn-ghost btn-circle drawer-button is-drawer-open:rotate-y-180">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" strokeLinejoin="round" strokeLinecap="round" strokeWidth="2" fill="none" stroke="currentColor" className="inline-block size-4 my-1.5"><path d="M4 4m0 2a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2z"></path><path d="M9 4v16"></path><path d="M14 10l2 2l-2 2"></path></svg>
+            </label>
           </div>
         </div>
-      </main>
-      <LearnMore cards={DASHBOARD_CARDS} />
+      </div>
+        </div>
       <Footer />
     </>
   );

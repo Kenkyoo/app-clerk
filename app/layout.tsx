@@ -41,7 +41,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${geistSans.variable} ${geistMono.variable}`}>
+    <html
+      data-theme="dark"
+      lang="en"
+      className={`${geistSans.variable} ${geistMono.variable}`}
+    >
       <ClerkProvider appearance={clerkAppearanceObject}>
         <body className={`min-h-screen flex flex-col antialiased`}>
           {children}
