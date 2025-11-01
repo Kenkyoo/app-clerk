@@ -25,7 +25,7 @@ function Row({
 
 function PointerC({ label }: { label: string }) {
   return (
-    <div className="absolute w-fit flex items-center gap-5 top-1/2 -translate-y-1/2 left-full">
+    <div className="absolute w-fit hidden md:flex items-center gap-5 top-1/2 -translate-y-1/2 left-full">
       <div className="relative">
         <div className="h-px w-26 bg-accent" />
         <div className="size-1 rotate-45 bg-white absolute right-0 top-1/2 -translate-y-1/2" />
@@ -65,8 +65,8 @@ export function UserDetails() {
   if (!user || !session) return null;
 
   return (
-    <div className="flex flex-col gap-4 py-10 px-20">
-    <div className="breadcrumbs text-sm self-center">
+    <div className="flex flex-col gap-4 py-10 md:justify-center md:items-center mx-auto">
+    <div className="breadcrumbs text-sm hidden md:flex self-center">
    <ul>
     <li>
                                          <Link
@@ -123,8 +123,8 @@ export function UserDetails() {
   </ul>
 </div>
 <div className="divider"></div>
-    <div className="p-16 rounded-lg relative">
-      <div className="p-8 rounded-xl shadow-[0_5px_15px_rgba(0,0,0,0.08),0_15px_35px_-5px_rgba(25,28,33,0.2)] bg-base-300 ring-1 ring-gray-950/5 max-w-100">
+    <div className="rounded-lg relative self-start md:ms-10 w-full md:max-w-90">
+      <div className="p-8 rounded-xl shadow-[0_5px_15px_rgba(0,0,0,0.08),0_15px_35px_-5px_rgba(25,28,33,0.2)] bg-base-300 ring-1 ring-gray-950/5">
         <div className="flex flex-col items-center gap-2 mb-6">
           <div className="w-full relative flex justify-center">
             <div className="avatar">

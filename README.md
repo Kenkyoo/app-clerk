@@ -1,83 +1,85 @@
-<p align="center">
-  <a href="https://go.clerk.com/e3UDpP4" target="_blank" rel="noopener noreferrer">
-   <picture>
-      <source media="(prefers-color-scheme: dark)" srcset="./public/light-logo.png">
-      <img src="./public/dark-logo.png" height="64">
-    </picture>
-  </a>
-  <br />
-</p>
-<div align="center">
-  <h1>
-    Next.js Clerk auth starter template
-  </h1>
-  <a href="https://www.npmjs.com/package/@clerk/clerk-js">
-    <img alt="" src="https://img.shields.io/npm/dm/@clerk/clerk-js" />
-  </a>
-  <a href="https://discord.com/invite/b5rXHjAg7A">
-    <img alt="Discord" src="https://img.shields.io/discord/856971667393609759?color=7389D8&label&logo=discord&logoColor=ffffff" />
-  </a>
-  <a href="https://twitter.com/clerkdev">
-    <img alt="Twitter" src="https://img.shields.io/twitter/url.svg?label=%40clerkdev&style=social&url=https%3A%2F%2Ftwitter.com%2Fclerkdev" />
-  </a>
-  <br />
-  <br />
-  <img alt="Clerk Hero Image" src="public/og.png">
-</div>
+# App Clerk
 
-## Introduction
+Aplicación desarrollada con **Next.js** y **Clerk** que permite registrar e iniciar sesión con múltiples proveedores (Google, GitHub, etc). Luego del inicio de sesión, el **dashboard** muestra información detallada del usuario autenticado.
 
-Clerk is a developer-first authentication and user management solution. It provides pre-built React components and hooks for sign-in, sign-up, user profile, and organization management. Clerk is designed to be easy to use and customize, and can be dropped into any React or Next.js application.
+---
 
-This template allows you to get started with Clerk and Next.js (App Router) in a matter of minutes, and demonstrates features of Clerk such as:
+## 🚀 Demo
 
-- Fully functional auth flow with sign-in, sign-up, and a protected page
-- Customized Clerk components with Tailwind CSS
-- Hooks for accessing user data and authentication state
-- Organizations for multi-tenant applications
+* **Deploy:** [https://app-clerk.netlify.app/](https://app-clerk.netlify.app/)
+* **Repositorio:** [https://github.com/Kenkyoo/app-clerk](https://github.com/Kenkyoo/app-clerk)
 
-## Demo
+---
 
-A hosted demo of this example is available at https://clerk-nextjs-app-router.vercel.app/
+## 🧩 Características principales
 
-## Deploy
+* Autenticación con Clerk y varios proveedores (Google, GitHub, Email, etc).
+* Páginas protegidas y redirección automática de usuarios no autenticados.
+* Integración completa con **App Router** de Next.js.
+* Dashboard con datos detallados del usuario.
+* Estilos con **Tailwind CSS** y componentes personalizados de Clerk.
+* Uso de **hooks** de Clerk para acceder al estado de autenticación y los datos del usuario.
 
-Easily deploy the template to Vercel with the button below. You will need to set the required environment variables in the Vercel dashboard.
+---
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fclerk%2Fnextjs-auth-starter-template&project-name=nextjs-clerk&repository-name=nextjs-with-clerk&demo-title=Next.js+Clerk+Template&demo-description=A+Next.js+application+pre-configured+to+authenticate+users+with+Clerk.&demo-url=https%3A%2F%2Fnextjs-auth-starter-template-kit.vercel.app%2F&demo-image=%2F%2Fraw.githubusercontent.com%2Fclerk%2Fnextjs-auth-starter-template%2Frefs%2Fheads%2Fmain%2Fpublic%2Fog.png&products=%5B%7B%22type%22%3A%22integration%22%2C%22integrationSlug%22%3A%22clerk%22%2C%22productSlug%22%3A%22clerk%22%2C%22protocol%22%3A%22authentication%22%2C%22group%22%3A%22%22%7D%5D)
+## 🛠️ Tecnologías utilizadas
 
-## Running the template
+* [Next.js 16](https://nextjs.org/)
+* [Clerk](https://clerk.com/)
+* [React 19](https://react.dev/)
+* [Tailwind CSS 4](https://tailwindcss.com/)
+* [DaisyUI](https://daisyui.com/)
+* [TypeScript](https://www.typescriptlang.org/)
+
+---
+
+## ⚙️ Instalación y uso
 
 ```bash
-git clone https://github.com/clerk/clerk-nextjs-demo-app-router
+# Clonar el repositorio
+git clone https://github.com/Kenkyoo/app-clerk.git
+
+# Entrar al proyecto
+cd app-clerk
+
+# Instalar dependencias
+npm install
+
+# Ejecutar en desarrollo
+npm run dev
 ```
 
-To run the example locally, you need to:
+---
 
-1. Sign up for a Clerk account at [https://clerk.com](https://go.clerk.com/31bREJU).
-2. Go to the [Clerk dashboard](https://go.clerk.com/4I5LXFj) and create an application.
-3. Set the required Clerk environment variables as shown in [the example `env` file](./.env.example).
-4. Go to "Organization Settings" in your sidebar and enable Organizations
-5. `npm install` the required dependencies.
-6. `npm run dev` to launch the development server.
+## 🧑‍💻 Descripción técnica
 
-## Learn more
+Clerk ofrece una solución completa de autenticación y gestión de usuarios para aplicaciones **React** y **Next.js**. Esta aplicación demuestra:
 
-To learn more about Clerk and Next.js, check out the following resources:
+* Flujo completo de autenticación (registro, inicio y cierre de sesión).
+* Personalización de componentes Clerk usando Tailwind.
+* Integración de hooks (`useUser`, `useAuth`) para mostrar datos del usuario.
 
-- [Quickstart: Get started with Next.js and Clerk](https://go.clerk.com/vgWhQ7B)
-- [Clerk Documentation](https://go.clerk.com/aNiTioa)
-- [Next.js Documentation](https://nextjs.org/docs)
+---
 
-## Found an issue or have feedback?
+## 📂 Estructura básica del proyecto
 
-If you have found an issue with this repo or have feedback, please join our Discord and create a new thread inside of our [support](https://clerk.com/discord) channel.
+```
+app-clerk/
+├── app/              # App Router de Next.js
+├── components/       # Componentes reutilizables
+├── middleware.ts     # Protección de rutas con Clerk
+├── package.json      # Configuración del proyecto
+└── tailwind.config.js
+```
 
-If it's a quick fix, such as a misspelled word or a broken link, feel free to skip creating a thread.
-Go ahead and create a [pull request](https://github.com/clerk/clerk-nextjs-demo-app-router/pulls) with the solution. :rocket:
+---
 
-## Connect with us
+## 📸 Capturas
 
-You can discuss ideas, ask questions, and meet others from the community in our [Discord](https://clerk.com/discord).
+*(Opcional: agregar imágenes del login y dashboard si lo deseas)*
 
-If you prefer, you can also find support through our [Twitter](https://twitter.com/ClerkDev), or you can [email](mailto:support@clerk.dev) us!
+---
+
+## 📜 Licencia
+
+Proyecto de código abierto bajo la licencia MIT.
